@@ -22,13 +22,12 @@ function calcolaArea(base, altezza){
 
 function calcolaVolume(area, profondità){
     let volume = area * profondità;
-
     return volume;
 }
 
 areaButton.addEventListener("click", function(){
     catchUserData();
-
+    
     if(isNaN(base) || base === "" || isNaN(altezza) || altezza === "" ){
         risultati.innerHTML = "Per favore inserisci delle misure valide";
     } else {
