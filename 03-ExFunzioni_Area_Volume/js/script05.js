@@ -5,26 +5,29 @@ let areaButton = document.getElementById("areaButton");
 let volumeButton = document.getElementById("volumeButton");
 let risultati = document.getElementById("risultati");
 
-// let base = misuraBaseInput.value;
-// let altezza = misuraAltezzaInput.value;
-// let profondità = misuraProfonditaInput.value;
+let base;
+let altezza;
+let profondita;
 
+function catchUserData(){
+    base = parseFloat(misuraBaseInput.value);
+    altezza = parseFloat(misuraAltezzaInput.value);
+    profondita = parseFloat(misuraProfonditaInput.value);
+}
 
 function calcolaArea(base, altezza){
     let area = base * altezza;
     return area;
 }
 
-function calcolaVolume(base, altezza, profondità){
-    let area = calcolaArea(base, altezza);
+function calcolaVolume(area, profondità){
     let volume = area * profondità;
 
     return volume;
 }
 
 areaButton.addEventListener("click", function(){
-    let base = parseFloat(misuraBaseInput.value);
-    let altezza = parseFloat(misuraAltezzaInput.value);
+    catchUserData();
 
     if(isNaN(base) || base === "" || isNaN(altezza) || altezza === "" ){
         risultati.innerHTML = "Per favore inserisci delle misure valide";
@@ -34,17 +37,12 @@ areaButton.addEventListener("click", function(){
 })
 
 volumeButton.addEventListener("click", function(){
-    let base = parseFloat(misuraBaseInput.value);
-    let altezza = parseFloat(misuraAltezzaInput.value);
-    let profondita = parseFloat(misuraProfonditaInput.value);
-
-
+    catchUserData();
 
     if(isNaN(base) || base === "" || isNaN(altezza) || altezza === "" || isNaN(profondita) || profondita === ""){
         risultati.innerHTML = "Per favore inserisci delle misure valide";
     } else {
-        let volume = calcolaArea(base, altezza) * profondita;
-        risultati.innerHTML = `Il volume è ${volume}`;
+        risultati.innerHTML = `Il volume è ${calcolaVolume(calcolaArea(base,altezza),profondita)}`;
     }
 })
 
