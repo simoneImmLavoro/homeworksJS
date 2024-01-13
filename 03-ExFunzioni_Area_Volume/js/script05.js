@@ -30,6 +30,7 @@ function checkValid(valore){
     return nonValido;
 }
 
+
 areaButton.addEventListener("click", function(){
     catchUserData();
     
@@ -44,9 +45,9 @@ areaButton.addEventListener("click", function(){
     }
 })
 
+
 volumeButton.addEventListener("click", function(){
     catchUserData();
-
 
     if((checkValid(base)) && checkValid(altezza) && checkValid(profondita)){
         risultati.innerHTML = "Per favore inserisci delle misure valide";
