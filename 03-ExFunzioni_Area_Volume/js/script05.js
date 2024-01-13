@@ -51,9 +51,9 @@ volumeButton.addEventListener("click", function(){
 
     if((checkValid(base)) && checkValid(altezza) && checkValid(profondita)){
         risultati.innerHTML = "Per favore inserisci delle misure valide";
-    }else if((checkValid(base)) && checkValid(profondita)){
+    }else if((checkValid(base)) && checkValid(altezza)){
         risultati.innerHTML = "Inserisci un valore valido per la base e uno per l'altezza";
-    }else if((checkValid(base)) && checkValid(profondita)){checkValid(altezza)
+    }else if((checkValid(base)) && checkValid(profondita)){
         risultati.innerHTML = "Inserisci un valore valido per la base e uno per la profondità";
     }else if(checkValid(altezza) && checkValid(profondita)){
         risultati.innerHTML = "Inserisci un valore valido per l'altezza e uno per la profondità";
