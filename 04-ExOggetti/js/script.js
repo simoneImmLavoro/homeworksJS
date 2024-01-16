@@ -57,7 +57,6 @@ function ordinaCognome(a,b){
 let myClass = unorderedMyClass.sort(ordinaCognome)
 
 myClass.forEach(alunno => {
-    console.log(alunno.toString())
     let redDot = document.createElement("span");
     let alunnoButton = document.createElement("button");
     let alunnoP = document.createElement("p");
