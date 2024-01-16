@@ -52,7 +52,6 @@ function ordinaCognome(a,b){
         return 1;
     }
 
-    return 0;
 }
 
 let myClass = unorderedMyClass.sort(ordinaCognome)
@@ -65,7 +64,7 @@ myClass.forEach(alunno => {
     
     redDot.classList.add("red-dot");
     alunnoP.innerHTML = alunno.toString();
-    alunnoButton.innerHTML = "Presente";
+    alunnoButton.innerHTML = "Presenza";
 
     alunnoButton.addEventListener("click", function(){
         alunno.switchPresence();
