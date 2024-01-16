@@ -1,5 +1,6 @@
 p{
-    display: inline;
+    display: inline-block;
+    margin: 0.1rem 0;
 }
 
 .listaAlunni{
@@ -28,3 +29,5 @@ button{
     position: absolute;
     left: 30%;
 }
+
+
