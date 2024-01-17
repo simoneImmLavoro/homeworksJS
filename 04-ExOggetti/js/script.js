@@ -58,8 +58,8 @@ let myClass = unorderedMyClass.sort(ordinaCognome)
 
 myClass.forEach(alunno => {
     let redDot = document.createElement("span");
-    let alunnoButton = document.createElement("button");
     let alunnoP = document.createElement("p");
+    let alunnoButton = document.createElement("button");
     
     redDot.classList.add("red-dot");
     alunnoP.innerHTML = alunno.toString();
