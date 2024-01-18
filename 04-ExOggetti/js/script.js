@@ -24,6 +24,7 @@ function Alunno(nome, cognome, presenza){
 
 }
 
+
 let unorderedMyClass = [
     alunno1 = new Alunno("Simone", "Astore", false),
     alunno2 = new Alunno("Sofia", "Signa", false),
