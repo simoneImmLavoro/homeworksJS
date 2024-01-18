@@ -26,21 +26,21 @@ function Alunno(nome, cognome, presenza){
 
 
 let unorderedMyClass = [
-    alunno1 = new Alunno("Simone", "Astore", false),
-    alunno2 = new Alunno("Sofia", "Signa", false),
-    alunno3 = new Alunno("Rose", "Beni", false),
-    alunno4 = new Alunno("Paolo", "Carinola", false),
-    alunno5 = new Alunno("Paolo", "Gippa", false),
-    alunno6 = new Alunno("Paolo", "Carlini", false),
-    alunno7 = new Alunno("Elena", "Soave", false),
-    alunno8 = new Alunno("Alessandro", "Capraro", false),
-    alunno9 = new Alunno("Marco", "Meola", false),
-    alunno10 = new Alunno("Vania", "Villanueva", false),
-    alunno11 = new Alunno("Kewin", "Montenegro", false),
-    alunno12 = new Alunno("Tamara", "Sans", false),
-    alunno13 = new Alunno("Munir", "Ghanam", false),
-    alunno14 = new Alunno("Leonardo", "Stahl", false),
-    alunno15 = new Alunno("Mayte", "Caci", false),
+    new Alunno("Simone", "Astore", false),
+    new Alunno("Sofia", "Signa", false),
+    new Alunno("Rose", "Beni", false),
+    new Alunno("Paolo", "Carinola", false),
+    new Alunno("Paolo", "Gippa", false),
+    new Alunno("Paolo", "Carlini", false),
+    new Alunno("Elena", "Soave", false),
+    new Alunno("Alessandro", "Capraro", false),
+    new Alunno("Marco", "Meola", false),
+    new Alunno("Vania", "Villanueva", false),
+    new Alunno("Kewin", "Montenegro", false),
+    new Alunno("Tamara", "Sans", false),
+    new Alunno("Munir", "Ghanam", false),
+    new Alunno("Leonardo", "Stahl", false),
+    new Alunno("Mayte", "Caci", false),
 ]
 
 function ordinaCognome(a,b){
