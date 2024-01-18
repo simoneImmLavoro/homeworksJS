@@ -65,16 +65,15 @@ myClass.forEach(alunno => {
     redDot.classList.add("red-dot");
     alunnoP.innerHTML = alunno.toString();
     alunnoButton.innerHTML = "Presenza";
-
-    alunnoButton.addEventListener("click", function(){
-        alunno.switchPresence();
-        alunnoP.innerHTML = alunno.toString();
-        redDot.classList.toggle("green-dot");
-    })
-
+    
     listaAlunni.appendChild(redDot);
     listaAlunni.appendChild(alunnoP);
     listaAlunni.appendChild(alunnoButton);
     listaAlunni.appendChild(document.createElement("br"));
     
+    alunnoButton.addEventListener("click", function(){
+        alunno.switchPresence();
+        alunnoP.innerHTML = alunno.toString();
+        redDot.classList.toggle("green-dot");
+    })
 })
