@@ -1,22 +1,17 @@
-// Es.7
-// Scrivi un programma che stampa il seguente pattern :
-// 1
-// 2 3
-// 4 5 6
-// 7 8 9 10
+let myRows = 4;
+let myKey = 1;
+let myString= "";
 
-let myMax = 10;
-
-for(let i = 1; i <= 5; i++){
-    let myKey = 1;
-    let myString = 0;
+for(let i = 1; i <= myRows; i++){
     for(let g = 1; g <= i; g++){
-        myString += myKey;
+        myString = myString+ myKey;
+        myKey++;
+        // console.log(myString);
     }
-    console.log(myString);
+    myString = myString + "\n"
 }
 
-
+console.log(myString)
 
 
 
