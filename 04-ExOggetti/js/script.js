@@ -21,7 +21,6 @@ function Alunno(nome, cognome, presenza){
     this.switchPresence = function(){
         this.presenza = !this.presenza;
     }
-
 }
 
 
