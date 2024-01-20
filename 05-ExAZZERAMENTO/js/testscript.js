@@ -16,3 +16,5 @@ function findLetter(sentence, letter){
 }
 
 console.log(findLetter(myString, myChar))
+
+

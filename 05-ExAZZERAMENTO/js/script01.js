@@ -1,24 +1,24 @@
-let array = [];
-let maxNum;
+let myArray = [];
+let maxNum = 0;
 
 
 for(let i = 0; i <= 5; i++){
     let random = Math.ceil(Math.random() * 100);
 
-    if(array.includes(random)){
+    if(myArray.includes(random)){
         i--
     } else {
-        array.push(random)
+        myArray.push(random)
 
     }
 }
 
-console.log(array);
+console.log(myArray);
 
-for(let i=0; i < array.length; i++){
-    if(array[i] > array[i-1]){
-        maxNum= array[i]
+myArray.forEach(number =>{
+    if(number > maxNum){
+        maxNum = number;
     }
-}
+})
 
 console.log(maxNum);
