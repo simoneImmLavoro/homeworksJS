@@ -1,16 +1,16 @@
 let myString = "E' nato prima l'uovo o la gallina ?"
 
-function longWordFinder(string){
-    let myArr = string.split(" ");
-    let longerWord = "";
+function longerWord(sentence){
+    let sentenceArr = sentence.split(" ");
+    let longer = " ";
 
-    for(let i = 0; i < myArr.length; i++){
-        if(myArr[i].length > longerWord.length){
-            longerWord = myArr[i];
+    sentenceArr.forEach(word =>{
+        if(word.length > longer.length){
+            longer = word;
         }
-    }
 
-    return longerWord;
+    })
+    return longer;
 }
 
-console.log(longWordFinder(myString))
+console.log(longerWord(myString))
