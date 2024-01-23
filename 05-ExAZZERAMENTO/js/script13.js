@@ -1,4 +1,4 @@
-//Es5 Scrivi un programma che accetta (da input) un numero come input e inserisce un dash (-) tra due numeri pari. Es ( 823486 -> 8-234-8-6 )
+//sistemare
 
 let myNumb = document.getElementById("myNumbers");
 let printBttn = document.getElementById("print");
