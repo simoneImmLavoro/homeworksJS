@@ -1,5 +1,3 @@
-//sistemare
-
 let myNumb = document.getElementById("myNumbers");
 let printBttn = document.getElementById("print");
 let demo = document.getElementById("demo");
