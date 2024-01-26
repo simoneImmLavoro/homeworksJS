@@ -16,21 +16,28 @@ function aggiungi() {
     li.onclick = function () {
         this.classList.toggle("barrato");
     }
-
-    deleteBtn.onclick = function () {
-        listaToDo.removeChild(li)
-    }
-
-
-    importantBtn.onclick = function () {
-        li.classList.toggle("important")
-    }
-
-            
+    
     listaToDo.appendChild(li);
     li.appendChild(spanBtn);
     spanBtn.appendChild(importantBtn);
     spanBtn.appendChild(deleteBtn);
+    itemInput.value = ""
+
+    importantBtn.onclick = function () {
+        li.classList.toggle("important")
+        
+        if (li.classList.contains("important")) {
+            spanBtn.removeChild(deleteBtn);
+        } else {
+            spanBtn.appendChild(deleteBtn);
+        }
+    }
+
+    deleteBtn.onclick = function () {
+    spanBtn.appendChild(deleteBtn)
+        listaToDo.removeChild(li)
+    }
+    
 }
 
 btn.onclick = aggiungi;
