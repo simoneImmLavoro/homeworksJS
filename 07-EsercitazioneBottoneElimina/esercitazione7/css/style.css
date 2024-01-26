@@ -1,0 +1,22 @@
+#listaToDo{
+    position: relative;
+}
+
+.important{
+    color: coral;
+}
+
+li{
+    margin-bottom: 7px;
+}
+
+li span{
+    position: absolute;
+    left: 30%;
+}
+
+li button{
+    font-weight: bolder;
+    width: 25px;
+    margin-right: 5px;
+}
