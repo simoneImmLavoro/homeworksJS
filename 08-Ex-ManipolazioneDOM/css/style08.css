@@ -1,0 +1,29 @@
+.box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#myImg{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: 40%;
+}
+
+img{
+    display: block;
+    margin: auto;
+}
+
+#randomize{
+    display: block;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
