@@ -9,15 +9,22 @@ button.addEventListener("click", function(){
     let cognome = cognomeInput.value;
     let newWave = document.createElement("p")
 
-    let regexPattern = /[A-Za-z ]+$/;
+    let regexPattern = /^[A-Za-z][A-Za-z\s]*$/;
 
-    if(nome.match(regexPattern) && cognome.match(regexPattern)){
+    if(!regexPattern.test(nome) && !regexPattern.test(cognome)){
+        newWave.textContent = `Per favore, inserisci un nome e un cognome validi.`
+    } else if(!regexPattern.test(nome)){
+        newWave.textContent = `Il nome inserito non è valido.`
+        nomeInput.value = "";
+    }else if(!regexPattern.test(cognome)){
+        newWave.textContent = `Il cognome inserito non è valido.`
+        cognomeInput.value = "";
+    } else {
         newWave.textContent = `Ciao ${nome} ${cognome}!`
         nomeInput.value = "";
         cognomeInput.value = "";
-    }else{
-        newWave.textContent = `Per favore, inserisci un nome e un cognome validi.`       
     }
+
     
     boxSaluto.appendChild(newWave);        
 })

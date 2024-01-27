@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inserisci e rimuovi elementi dalla seguente dropdown</h1>
+    <label for="drop-list">La tua drop-list:</label>
+    <select name="drop" id="drop-list">
+        <option value="-----">-----</option>
+    </select>
+    <br>
+    <br>
+    <label for="addItem">Cosa vuoi aggiungere:</label><br>
+    <input type="text" id="addItem">
+    <br>
+    <br>
+    <input type="button" value="Aggiungi" id="addBtn">
+    <br>
+    <br>
+    <label for="removeItem">Cosa vuoi rimuovere:</label><br>
+    <input type="text" id="removeItem">
+    <br>
+    <br>
+    <input type="button" value="Rimuovi" id="removeBtn">
+    <br>
+    <br>
+    <div id="feed"></div>
+    <script src="./js/script05.js"></script>
+</body>
+</html>
