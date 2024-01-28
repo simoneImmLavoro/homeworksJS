@@ -58,8 +58,8 @@ function findPrint(row, col, value){
 printBtn.addEventListener("click", function(){
     feed.innerHTML = "";
 
-    let X = nRow.value;
-    let Y = nCol.value;
+    let X = Number(nRow.value);
+    let Y = Number(nCol.value);
     let content = myValue.value;
 
     findPrint(X,Y, content);
