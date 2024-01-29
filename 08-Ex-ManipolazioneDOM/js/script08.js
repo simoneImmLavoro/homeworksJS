@@ -1,7 +1,7 @@
-let myImg = document.querySelector("#myImg");
+let theImg = document.querySelector("#myImg");
 let randomize = document.querySelector("#randomize");
 
-function Image(url, width, height){
+function Image(url, width, height) {
     this.url = url;
     this.width = width;
     this.height = height;
@@ -13,35 +13,31 @@ let myImages = [
     new Image("http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg", "500", "343"),
 ]
 
-
-function setAttributeImg(imgTag, myImg){
+function setAttributeImg(imgTag, myImg) {
     imgTag.setAttribute("src", myImg.url);
     imgTag.setAttribute("height", myImg.height);
     imgTag.setAttribute("width", myImg.width);
-
 }
 
 let actualUrl = "";
 
-function randomImage(){
-    let newImg = document.createElement("img");
+function randomImage() {
     let myRandom;
 
     do {
         myRandom = Math.floor(Math.random() * myImages.length);
     } while (actualUrl === myImages[myRandom].url);
 
-        setAttributeImg(newImg, myImages[myRandom]);
+    let newImg = document.createElement("img");
+    setAttributeImg(newImg, myImages[myRandom]);
 
-        myImg.innerHTML = '';
-        myImg.appendChild(newImg)
-        actualUrl = myImages[myRandom].url;
-    }
-    
+    theImg.innerHTML = '';
+    theImg.appendChild(newImg);
+    actualUrl = myImages[myRandom].url;
+}
 
-randomize.addEventListener("click", function(){
-    randomImage()
-})
+randomize.addEventListener("click", function () {
+    randomImage();
+});
 
-randomImage()
-
+randomImage();
