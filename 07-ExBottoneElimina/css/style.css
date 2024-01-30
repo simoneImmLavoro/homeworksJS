@@ -20,3 +20,7 @@ li button{
     width: 25px;
     margin-right: 5px;
 }
+
+.pressed{
+    background-color: rgb(199, 198, 196);
+}

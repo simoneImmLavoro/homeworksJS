@@ -12,32 +12,29 @@ function aggiungi() {
     li.textContent = item;
     deleteBtn.innerText = "X"
     importantBtn.innerText = "!"
-
-    li.onclick = function () {
-        this.classList.toggle("barrato");
-    }
-    
+  
     listaToDo.appendChild(li);
     li.appendChild(spanBtn);
     spanBtn.appendChild(importantBtn);
     spanBtn.appendChild(deleteBtn);
     itemInput.value = ""
 
-    importantBtn.onclick = function () {
-        li.classList.toggle("important")
-        
+    importantBtn.addEventListener("click", function () {
+        li.classList.toggle("important");
+        importantBtn.classList.toggle("pressed")
+
         if (li.classList.contains("important")) {
             spanBtn.removeChild(deleteBtn);
         } else {
             spanBtn.appendChild(deleteBtn);
         }
-    }
+    })
 
-    deleteBtn.onclick = function () {
-    spanBtn.appendChild(deleteBtn)
-        listaToDo.removeChild(li)
-    }
+    deleteBtn.addEventListener("click", function () {
+        spanBtn.appendChild(deleteBtn);
+        listaToDo.removeChild(li);
+    })
     
 }
 
-btn.onclick = aggiungi;
+btn.addEventListener("click", aggiungi);
