@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: rgb(22, 22, 22);
+}
+
+.all{
+    margin: 3rem;
+    position: relative;
+
+}
+
+.main-title{
+    font-family: 'Allerta Stencil', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #f8f8f8;
+}
+
+.showcase{
+    font-family: 'PT Serif', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.08rem;
+    text-align: center;
+    color: #f8f8f8;
+}
+
+#carousel{
+    display: flex;
+    gap: 3rem;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.film-card{
+    background-color: rgb(224, 208, 186);
+    border-radius: 20px;
+    padding: 2rem;
+    width:45%;
+    display: flex;
+    height: 50vh;
+    margin: 0 auto;
+}
+
+.film-card img{
+    aspect-ratio: 0.75;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 90%;
+}
+
+.locandina{
+    margin: 0;
+    width: 65%;
+}
+
+.descr-container{
+    margin-left: -1rem;
+    padding: 1rem 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.descr-container h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.descr-container p{
+    margin-left: 0.3rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.descr-container ul{
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    margin-left: 0.3rem;
+}
+
+.descr-container ul li{
+    margin-bottom: 0.3rem;
+}
+
+.buttons{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttons button{
+    margin: 0 0.3rem;
+}
