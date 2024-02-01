@@ -142,6 +142,11 @@ img{
 }
 
 .buttons button:hover{
-    background-color: rgb(121, 136, 104);
+    background-color: rgb(165, 182, 145);
+    color: #f8f8f8;
+}
+
+.buttons button:active{
+    background-color: rgb(114, 126, 100);
     color: #f8f8f8;
 }
