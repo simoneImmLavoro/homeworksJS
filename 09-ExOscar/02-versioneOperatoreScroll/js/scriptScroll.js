@@ -120,8 +120,5 @@ btnNext.addEventListener("click", function() {
 
     let movement = "-" + currentI + "%"
 
-    console.log("Current Index:", currentI);
-    console.log("Movement:", movement);
-
     carousel.style.left = movement
 });

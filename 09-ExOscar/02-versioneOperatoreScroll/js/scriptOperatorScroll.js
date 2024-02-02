@@ -9,7 +9,11 @@ let plusActor = document.querySelector("#plusActor");
 let minusActor = document.querySelector("#minusActor");
 let alertP = document.querySelector(".alert")
 let deleteInput = document.querySelector("#deleteInput")
-let removeFilmBtn = document.querySelector("#removeFilmBtn")
+let removeFilmBtn = document.querySelector("#removeFilmBtn");
+let removeFilmField = document.querySelector(".remove-film");
+let lastResortBtns =document.querySelector(".last-resort")
+let btnYes = document.querySelector(".btnYes");
+let btnNo = document.querySelector(".btnNo");
 
 ///////////////scheda anteprima vuota ///////////////
 
@@ -78,10 +82,6 @@ function creaAnteprima(addFilm){
     confirmButton.textContent = "Inserisci film"
     descrizioneBoxPreview.appendChild(confirmButton)
 
-    // let deleteButton = document.createElement("button");
-    // deleteButton.classList.add("delete")
-    // deleteButton.textContent = "Rimuovi film"
-    // descrizioneBoxPreview.appendChild(confirmButton)
 }
 
 let sample = new Film("Titolo", "https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg", "", "", "", "", "")
@@ -91,6 +91,7 @@ creaAnteprima(sample)
 ///////////////////////events blur sugli input/////////////
 
 addTitleInput.addEventListener("blur", function(){
+    alertP.textContent = ""
     let titolo = document.querySelector(".titoloPreview")
 
     titolo.textContent = this.value;
@@ -106,6 +107,7 @@ addImmagineInput.addEventListener("blur", function(){
 
 
 addWikiInput.addEventListener("blur", function(){
+    alertP.textContent = ""
     let wiki = document.querySelector(".wikiPreview")
 
     if(this.value.startsWith("https://")){
@@ -140,7 +142,6 @@ plusActor.addEventListener("click", function(){
     } else {
         alertP.textContent = "Non puoi aggiungere un Attore vuoto."
     }
-    
     
     
     for(let i= 0; i < arrActors.length; i++){
@@ -183,6 +184,7 @@ minusActor.addEventListener("click", function(){
 })
 
 addRegistaInput.addEventListener("blur", function(){
+    alertP.textContent = ""
     let regista = document.querySelector(".registaPreview")
     regista.textContent = "Regista:" + this.value;
 
@@ -190,6 +192,7 @@ addRegistaInput.addEventListener("blur", function(){
 
 
 addDurataInput.addEventListener("blur", function(){
+    alertP.textContent = ""
     let durata = document.querySelector(".durataPreview")
     
     durata.textContent = "Durata:" + this.value + "min";
@@ -197,6 +200,7 @@ addDurataInput.addEventListener("blur", function(){
 
 
 addPrezzoInput.addEventListener("blur", function(){
+    alertP.textContent = ""
     let prezzo = document.querySelector(".prezzoPreview")
 
     prezzo.textContent ="Prezzo:" + this.value + "€";
@@ -241,7 +245,8 @@ function inserisciNuovo(){
         
         alertP.textContent = "Scheda film aggiunta con successo!!!"
 
-
+        carousel.style.left = 0;
+        
     } else  {
         alertP.textContent = "Per favore inserisci tutti i dati necessari"
     }
@@ -256,31 +261,68 @@ confirmButton.addEventListener("click", function(){
 })
 
 
+
+let filmPresente = false;
+
 removeFilmBtn.addEventListener("click", function(){
     let deleteFilm = deleteInput.value.toLowerCase();
-    let cardContainer = document.querySelector("#carousel")
-    let filmPresente = false;
-    
+    filmPresente = false;
+
     for(let i = 0; i < myFilms.length; i++){
         if(myFilms[i].titolo.toLowerCase() == deleteFilm){
-            myFilms.splice(i, 1);
             filmPresente = true;
-            break;  // Esci dal ciclo dopo aver rimosso il film
+            break;
         }
     }
     
     if (filmPresente) {
-        cardContainer.innerHTML = '';
-        
-        myFilms.forEach(film =>{
-            createCard(film)
-            
-        })
-        
-       
-        alertP.textContent = "Film rimosso dalle slides";
+        removeFilmBtn.disabled = true;
+        alertP.textContent = "Attenzione! La seguente procedura non è reversibile. Per confermare o annullare, premi i rispettivi bottoni.";
+
+        btnNo.style.display = "inline";
+        btnYes.style.display = "inline";
     } else {
         alertP.textContent = "Il film non è presente tra le slides, controlla il titolo inserito";
     }
-
 });
+
+
+
+btnNo.addEventListener("click", function () {
+    btnNo.style.display = "none";
+    btnYes.style.display = "none";
+    deleteInput.value = ""; 
+    removeFilmBtn.disabled = false;
+    filmPresente = false;
+    alertP.textContent = "Procedura annullata come richiesto!"
+});
+
+
+
+btnYes.addEventListener("click", function(){
+    let deleteFilm = deleteInput.value.toLowerCase();
+    let cardContainer = document.querySelector("#carousel")
+    
+    btnNo.style.display = "none";
+    btnYes.style.display = "none";
+    deleteInput.value = "";
+    removeFilmBtn.disabled = false;
+    filmPresente = false;
+    alertP.textContent = "Elemento eliminato definitivamente";
+
+    for(let i = 0; i < myFilms.length; i++){
+        if(myFilms[i].titolo.toLowerCase() == deleteFilm){
+            myFilms.splice(i, 1);
+            filmPresente = true;
+            break;
+        }
+    }
+
+    cardContainer.innerHTML = '';
+        
+        myFilms.forEach(film =>{
+            createCard(film)
+        })
+
+        carousel.style.left = 0;
+})

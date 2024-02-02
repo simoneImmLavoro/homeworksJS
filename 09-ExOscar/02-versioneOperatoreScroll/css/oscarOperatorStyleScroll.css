@@ -65,7 +65,7 @@ img{
 .film-card{
     width: 20%;
     height: 100%;
-    /* margin: 0 0.5%;  */
+    margin: 0 0.5%; 
     background-color: rgb(224, 208, 186);
     border-radius: 15px;
     padding: 1rem;
@@ -196,9 +196,6 @@ img{
 
 .form{
     height: 70%;
-}
-
-.form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -206,7 +203,7 @@ img{
 }
 
 .form-box{
-    width: 20%;
+    width: 30%;
 }
 
 .preview{
@@ -235,11 +232,22 @@ img{
     color: #f8f8f8;
 }
 
+#client-side .removing{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#removeFilmBtn{
+    width: 40%;
+}
+
 .remove-film{
     width: 100%;
     padding: 0.4rem 0.6rem;
     margin-top: 1rem;
     background-color: rgb(112, 55, 55);
+    display: inline;
 }
 
 .remove-film input{
@@ -254,4 +262,34 @@ img{
 .remove-film button:active{
     background-color: rgb(163, 87, 73);
     color: #f8f8f8;
+}
+
+#client-side .last-resort{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnYes, .btnNo{
+    display: none;
+    width: 48%;
+}
+
+.operatore .btnYes{
+    background-color: rgb(219, 119, 119);
+    color: #f8f8f8;
+}
+
+
+.operatore .btnNo{
+    background-color: rgb(71, 151, 102);
+    color: #f8f8f8;
+}
+
+.operatore .btnNo:hover{
+    background-color: rgb(99, 196, 136);
+}
+
+.operatore .btnNo:active{
+    background-color: rgb(63, 122, 86);
 }
