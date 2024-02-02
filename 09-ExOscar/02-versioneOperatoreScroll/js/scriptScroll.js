@@ -2,6 +2,7 @@ let btnPrev = document.querySelector("#btnIndietro");
 let btnNext = document.querySelector("#btnAvanti");
 let carousel = document.querySelector("#carousel");
 
+
 function Film(titolo, locandinaUrl, wiki, attori, regista, durata, prezzo){
     this.titolo = titolo;
     this.locandinaUrl = locandinaUrl,
@@ -64,11 +65,19 @@ function createCard(filmToPrint){
     imgLink.appendChild(imgTag);
 
     container.classList.add("film-card");
+    container.classList.add("adapt");
     imgBox.classList.add("locandina")
     descrizioneBox.classList.add("descr-container")
     registaP.classList.add("director")
     durataP.classList.add("minor")
     prezzoP.classList.add("minor")
+
+    let slideCard = document.querySelectorAll(".adapt")
+    slideCard.forEach(card => {
+        card.style.width = (100 / myFilms.length) + "%";
+    });
+
+    carousel.style.width = (myFilms.length * 100) + "%";
 
 
     descrizioneBox.appendChild(titoloH3);

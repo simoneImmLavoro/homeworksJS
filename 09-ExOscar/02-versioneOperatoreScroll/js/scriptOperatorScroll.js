@@ -5,7 +5,11 @@ let addAttoriInput = document.querySelector("#attori");
 let addRegistaInput = document.querySelector("#regista");
 let addDurataInput = document.querySelector("#durata");
 let addPrezzoInput = document.querySelector("#prezzo");
-let plusActor = document.querySelector("#plusActor")
+let plusActor = document.querySelector("#plusActor");
+let minusActor = document.querySelector("#minusActor");
+let alertP = document.querySelector(".alert")
+let deleteInput = document.querySelector("#deleteInput")
+let removeFilmBtn = document.querySelector("#removeFilmBtn")
 
 ///////////////scheda anteprima vuota ///////////////
 
@@ -74,6 +78,10 @@ function creaAnteprima(addFilm){
     confirmButton.textContent = "Inserisci film"
     descrizioneBoxPreview.appendChild(confirmButton)
 
+    // let deleteButton = document.createElement("button");
+    // deleteButton.classList.add("delete")
+    // deleteButton.textContent = "Rimuovi film"
+    // descrizioneBoxPreview.appendChild(confirmButton)
 }
 
 let sample = new Film("Titolo", "https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg", "", "", "", "", "")
@@ -100,8 +108,14 @@ addImmagineInput.addEventListener("blur", function(){
 addWikiInput.addEventListener("blur", function(){
     let wiki = document.querySelector(".wikiPreview")
 
-    wiki.setAttribute("href", this.value);
+    if(this.value.startsWith("https://")){
+        wiki.setAttribute("href", this.value);;
+    } else {
+        let correctUrl = "https://" + this.value;
+        wiki.setAttribute("href", correctUrl);
+    }
 
+    wiki.setAttribute("target", "_blank");
 })
 
 
@@ -111,13 +125,21 @@ plusActor.addEventListener("click", function(){
     let actors = document.querySelector(".ulPreview")
     let actorsLi = actors.querySelectorAll("li")
 
+    alertP.textContent = ""
+
     actorsLi.forEach(li =>{
         actors.removeChild(li)
     })
     
 
     let addAttori = addAttoriInput.value;
-    arrActors.push(addAttori);
+
+    if(addAttori != ""){
+        arrActors.push(addAttori);
+        alertP.textContent="Attore aggiunto con successo!"
+    } else {
+        alertP.textContent = "Non puoi aggiungere un Attore vuoto."
+    }
     
     
     
@@ -126,6 +148,37 @@ plusActor.addEventListener("click", function(){
             attoreNome.textContent = arrActors[i];
             actors.appendChild(attoreNome);
         }
+
+
+})
+
+minusActor.addEventListener("click", function(){
+    let actors = document.querySelector(".ulPreview")
+    let actorsLi = actors.querySelectorAll("li")
+
+    alertP.textContent = ""
+
+
+    for(let i= 0; i < arrActors.length; i++){
+        if(arrActors[i] == addAttoriInput.value){
+            arrActors.splice(i,1)
+
+            actorsLi.forEach(li =>{
+                actors.removeChild(li)
+            })
+
+            for(let i= 0; i < arrActors.length; i++){
+                let attoreNome = document.createElement("li"); 
+                attoreNome.textContent = arrActors[i];
+                actors.appendChild(attoreNome);
+            }
+
+            alertP.textContent = "Attore rimosso!"
+        }  else {
+            alertP.textContent = "Quell'attore non è presente nella lista"
+        }
+
+    }
 
 })
 
@@ -138,7 +191,7 @@ addRegistaInput.addEventListener("blur", function(){
 
 addDurataInput.addEventListener("blur", function(){
     let durata = document.querySelector(".durataPreview")
-
+    
     durata.textContent = "Durata:" + this.value + "min";
 })
 
@@ -160,10 +213,9 @@ function inserisciNuovo(){
     let clientSide = document.querySelector("#client-side");
     let clientPanel = document.querySelector(".preview")
     let cardContainer = document.querySelector("#carousel")
-    let alertP = document.querySelector(".alert")
     
     
-    if (addTitle !== "" && addImmagine !== "" && addWiki !== "" && addRegista !== "" && addDurata !== "" && addPrezzo !== ""){
+    if (addTitle !== "" && addImmagine !== "" && addWiki !== "" && addRegista !== "" && addDurata !== "" && addPrezzo !== "" && arrActors.length > 0){
 
         alertP.textContent = ""
 
@@ -187,6 +239,9 @@ function inserisciNuovo(){
             createCard(film)
         })
         
+        alertP.textContent = "Scheda film aggiunta con successo!!!"
+
+
     } else  {
         alertP.textContent = "Per favore inserisci tutti i dati necessari"
     }
@@ -199,3 +254,33 @@ let confirmButton = document.querySelector(".confirm");
 confirmButton.addEventListener("click", function(){
     inserisciNuovo()
 })
+
+
+removeFilmBtn.addEventListener("click", function(){
+    let deleteFilm = deleteInput.value.toLowerCase();
+    let cardContainer = document.querySelector("#carousel")
+    let filmPresente = false;
+    
+    for(let i = 0; i < myFilms.length; i++){
+        if(myFilms[i].titolo.toLowerCase() == deleteFilm){
+            myFilms.splice(i, 1);
+            filmPresente = true;
+            break;  // Esci dal ciclo dopo aver rimosso il film
+        }
+    }
+    
+    if (filmPresente) {
+        cardContainer.innerHTML = '';
+        
+        myFilms.forEach(film =>{
+            createCard(film)
+            
+        })
+        
+       
+        alertP.textContent = "Film rimosso dalle slides";
+    } else {
+        alertP.textContent = "Il film non è presente tra le slides, controlla il titolo inserito";
+    }
+
+});
