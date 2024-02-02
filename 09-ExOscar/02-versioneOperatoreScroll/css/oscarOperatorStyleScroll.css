@@ -210,24 +210,24 @@ img{
     height: 60%;
 }
 
-.operatore button{
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    background-color: rgb(218, 218, 218);
-}
-
 .preview button{
     position: absolute;
     top: 80%;
     left: 70%;
 }
 
-.operatore button:hover{
+.form-box button, .preview button{
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background-color: rgb(218, 218, 218);
+}
+
+.form-box button:hover, .preview button:hover{
     background-color: rgb(165, 182, 145);
     color: #f8f8f8;
 }
 
-.operatore button:active{
+.form-box button:active, .preview button:active{
     background-color: rgb(114, 126, 100);
     color: #f8f8f8;
 }
@@ -254,12 +254,18 @@ img{
     width: 100%;
 }
 
-.remove-film button:hover{
+.remove-film button{
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background-color: rgb(218, 218, 218);
+}
+
+.remove-film .hoverBtn:hover{
     background-color: rgb(214, 146, 136);
     color: #f8f8f8;
 }
 
-.remove-film button:active{
+.remove-film .hoverBtn:active{
     background-color: rgb(163, 87, 73);
     color: #f8f8f8;
 }
@@ -280,6 +286,13 @@ img{
     color: #f8f8f8;
 }
 
+.operatore .btnYes:hover{
+    background-color: rgb(214, 136, 136);
+}
+
+.operatore .btnYes:active{
+    background-color: rgb(145, 86, 86);
+}
 
 .operatore .btnNo{
     background-color: rgb(71, 151, 102);

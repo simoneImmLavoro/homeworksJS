@@ -139,6 +139,7 @@ plusActor.addEventListener("click", function(){
     if(addAttori != ""){
         arrActors.push(addAttori);
         alertP.textContent="Attore aggiunto con successo!"
+        addAttoriInput.value = "";
     } else {
         alertP.textContent = "Non puoi aggiungere un Attore vuoto."
     }
@@ -150,7 +151,7 @@ plusActor.addEventListener("click", function(){
             actors.appendChild(attoreNome);
         }
 
-
+        
 })
 
 minusActor.addEventListener("click", function(){
@@ -178,7 +179,10 @@ minusActor.addEventListener("click", function(){
         }  else {
             alertP.textContent = "Quell'attore non è presente nella lista"
         }
+    }
 
+    if(arrActors.length == 0){
+        alertP.textContent = "La tua lista di attori è già vuota"
     }
 
 })
@@ -246,7 +250,7 @@ function inserisciNuovo(){
         alertP.textContent = "Scheda film aggiunta con successo!!!"
 
         carousel.style.left = 0;
-        
+
     } else  {
         alertP.textContent = "Per favore inserisci tutti i dati necessari"
     }
@@ -277,6 +281,8 @@ removeFilmBtn.addEventListener("click", function(){
     
     if (filmPresente) {
         removeFilmBtn.disabled = true;
+        removeFilmBtn.classList.remove("hoverBtn")
+
         alertP.textContent = "Attenzione! La seguente procedura non è reversibile. Per confermare o annullare, premi i rispettivi bottoni.";
 
         btnNo.style.display = "inline";
@@ -284,6 +290,7 @@ removeFilmBtn.addEventListener("click", function(){
     } else {
         alertP.textContent = "Il film non è presente tra le slides, controlla il titolo inserito";
     }
+
 });
 
 
@@ -293,6 +300,7 @@ btnNo.addEventListener("click", function () {
     btnYes.style.display = "none";
     deleteInput.value = ""; 
     removeFilmBtn.disabled = false;
+    removeFilmBtn.classList.add("hoverBtn")
     filmPresente = false;
     alertP.textContent = "Procedura annullata come richiesto!"
 });
@@ -307,6 +315,7 @@ btnYes.addEventListener("click", function(){
     btnYes.style.display = "none";
     deleteInput.value = "";
     removeFilmBtn.disabled = false;
+    removeFilmBtn.classList.add("hoverBtn")
     filmPresente = false;
     alertP.textContent = "Elemento eliminato definitivamente";
 
@@ -325,4 +334,8 @@ btnYes.addEventListener("click", function(){
         })
 
         carousel.style.left = 0;
+
+        if(myFilms.length == 0){
+            alertP.textContent = "ATTENZIONE, Lista film vuota, nessuna card verrà visualizzata."
+        }
 })
