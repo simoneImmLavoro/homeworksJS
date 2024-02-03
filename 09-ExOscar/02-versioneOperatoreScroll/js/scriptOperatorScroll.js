@@ -237,16 +237,13 @@ function inserisciNuovo(){
         addRegistaInput.value = "";
         addDurataInput.value = "";
         addPrezzoInput.value = "";
-        clientSide.removeChild(clientPanel)
+        arrActors = [];
+        cardContainer.innerHTML = '';
+        clientSide.removeChild(clientPanel);
         creaAnteprima(sample)
 
-
-        cardContainer.innerHTML = '';
-        
-        myFilms.forEach(film =>{
-            createCard(film)
-        })
-        
+        console.log(myFilms);
+       
         alertP.textContent = "Scheda film aggiunta con successo!!!"
 
         carousel.style.left = 0;
@@ -254,15 +251,17 @@ function inserisciNuovo(){
     } else  {
         alertP.textContent = "Per favore inserisci tutti i dati necessari"
     }
-    
+
+    myFilms.forEach(film =>{
+        createCard(film)
+    })
 }
 
 
 
 let confirmButton = document.querySelector(".confirm");
-confirmButton.addEventListener("click", function(){
-    inserisciNuovo()
-})
+confirmButton.addEventListener("click", inserisciNuovo)
+
 
 
 
@@ -328,7 +327,7 @@ btnYes.addEventListener("click", function(){
     }
 
     cardContainer.innerHTML = '';
-        
+
         myFilms.forEach(film =>{
             createCard(film)
         })
