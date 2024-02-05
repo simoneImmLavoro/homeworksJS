@@ -260,7 +260,10 @@ function inserisciNuovo(){
 
 
 let confirmButton = document.querySelector(".confirm");
-confirmButton.addEventListener("click", inserisciNuovo)
+confirmButton.addEventListener("click", function(){
+    console.log("test");
+    inserisciNuovo()
+})
 
 
 
