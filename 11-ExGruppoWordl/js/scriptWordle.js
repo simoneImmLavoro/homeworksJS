@@ -9,10 +9,11 @@ let parolaDelGiorno = "MAGIA";
 let parolaDelGiornoArray = parolaDelGiorno.split("");
 
 let tentativi = 0;
+let puntiVittoria;
 
 function creaRiga(){
-    let puntiVittoria = 0;
     tentativi++;
+    puntiVittoria = 0;
 
     if(tentativi > 5){
         message.textContent = "Mi dispiace HAI PERSO"
@@ -49,7 +50,7 @@ function creaRiga(){
                     if(charArray[i] == parolaDelGiornoArray[i]){
                         nuovaCasella.classList.add("bgGreen");
                         puntiVittoria++;
-                        if(puntiVittoria = 5){
+                        if(puntiVittoria == 5){
                             message.textContent = "SEI PAZZESC*, HAI VINTO!";
                             btnInsert.setAttribute("disabled", "true");
                             parolaInput.setAttribute("disabled", "true");
@@ -61,14 +62,19 @@ function creaRiga(){
     }
 }
 
-parolaInput.value = ""
+parolaInput.value = "";
 }
+
 
 
 btnInsert.addEventListener("click", creaRiga)
 
 btnReset.addEventListener("click", function(){
     tentativi = 0;
+    puntiVittoria = 0;
     grid.innerHTML = "";
     message.textContent = "";
-})
+    parolaInput.value = "";
+    btnInsert.removeAttribute("disabled");
+    parolaInput.removeAttribute("disabled");
+});
