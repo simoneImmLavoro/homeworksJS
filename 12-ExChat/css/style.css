@@ -1,0 +1,175 @@
+label, input, textarea, button{
+    display: block;
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+body{
+    background-color: rgb(27, 27, 27);
+    font-family: "Nunito", sans-serif;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 login page                                 */
+/* -------------------------------------------------------------------------- */
+
+.box-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box{
+    width: 40%;
+    height: 50vh;
+    background-color: rgb(227, 245, 245);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 2rem;
+}
+
+.login-box h1{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+form label{
+    margin: 1rem 0 0.3rem;
+    font-size: 1.1rem;
+}
+
+form .btnSubmit{
+    width: 6rem;
+    height: 2rem;
+    background-color: #227ac2;
+    box-shadow: 0px 9px 30px -11px #24619298,inset 0px 14px 29px 10px rgba(109, 52, 52, 0.1);
+    color: #fff;
+    margin: 1.3rem auto 0;
+}
+
+
+form .btnSubmit:hover{
+    background-color: #3588cc;
+}
+
+.alert{
+    height:2rem;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  chat page                                 */
+/* -------------------------------------------------------------------------- */
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgb(227, 245, 245);
+}
+
+.header{
+    height: 10vh;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  rgb(49, 49, 49);
+}
+
+.buttonLogout{
+    width: 10rem;
+    height: 3rem;
+    background-color: #227ac2;
+    box-shadow: 0px 9px 30px -11px #24619298,inset 0px 14px 29px 10px rgba(109, 52, 52, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.buttonLogout:hover{
+    background-color: #3588cc;
+}
+
+.buttonLogout:active{
+    background-color: #3272a7;
+}
+
+.buttonLogout a{
+    color: #fff;
+}
+
+.header h1{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.messageInsert{
+    height: 40vh;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.messageInsert h3{
+    font-size: 1.5rem;
+}
+
+.messageInsert p{
+    font-size: 1.1rem;
+}
+
+.messageInsert button{
+    width: 6rem;
+    height: 2rem;
+    background-color: #227ac2;
+    box-shadow: 0px 9px 30px -11px #24619298,inset 0px 14px 29px 10px rgba(109, 52, 52, 0.1);
+    color: #fff;
+}
+
+.messageInsert button:hover{
+    background-color: #3588cc;
+}
+
+#demo{
+    height: 50vh;
+    background-color: rgb(175, 238, 217);
+    overflow-y: scroll;
+    padding: 1.5rem 4rem;
+    border-width: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.message-box{
+    width: 60%;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: rgb(231, 222, 210);
+}
+
+.message-box h5{
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+}
+
+.session-owner{
+    background-color: rgb(211, 248, 151);
+    align-self: flex-end;
+}
