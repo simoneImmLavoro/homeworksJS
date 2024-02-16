@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="box-container">
+        <div class="register-box">
+            <h1>Registrati</h1>
+            <h4>Inserisci uno username e una password</h4>
+            <form action="./chat.html" id="formRegister">
+                <label for="username">Il tuo Username:</label>
+                <input type="text" id="username" placeholder="Username">
+                <label for="password">La tua Password:</label>
+                <input type="password" id="password" placeholder="Password">
+                <label for="passwordRepeat">Reinserisci la password:</label>
+                <input type="password" id="passwordRepeat" placeholder="Password">
+                <input type="submit" value="Login" class="btnSubmit">
+            </form>
+            <p class="alert"></p>
+            <p class="advice">Cliccando "Registrati" verrai reindirizzato alla pagina di <span class="registerLink"><a href="./login.html">login</a></span></p>
+        </div>
+    </div>
+
+    <script src="./js/script03.js"></script>
+</body>
+</html>
