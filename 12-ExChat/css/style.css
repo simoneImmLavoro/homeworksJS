@@ -2,6 +2,10 @@ label, input, textarea, button{
     display: block;
 }
 
+label{
+    text-align: left;
+}
+
 a{
     color: #000;
     text-decoration: none;
@@ -37,6 +41,8 @@ body{
     padding: 2rem;
 }
 
+
+
 .login-box h1{
     font-size: 1.8rem;
     font-weight: 600;
@@ -63,8 +69,12 @@ form .btnSubmit:hover{
 
 .alert{
     height:2rem;
+    text-align: center;
 }
 
+.register{
+    text-align: center;
+}
 
 
 /* -------------------------------------------------------------------------- */
@@ -72,7 +82,7 @@ form .btnSubmit:hover{
 /* -------------------------------------------------------------------------- */
 
 .register-box{
-    width: 40%;
+    width: 50%;
     height: 65vh;
     background-color: rgb(227, 245, 245);
     display: flex;
@@ -81,7 +91,10 @@ form .btnSubmit:hover{
     align-items: center;
     gap: 1.6rem;
     padding: 2rem;
+    text-align: center;
 }
+
+
 
 .register-box h1{
     font-size: 1.8rem;
@@ -90,6 +103,8 @@ form .btnSubmit:hover{
 
 .register-box .advice{
     font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.2;
 }
 
 .registerLink a{
@@ -161,6 +176,7 @@ form .btnSubmit:hover{
     justify-content: center;
     align-items: center;
     gap: 0.6rem;
+    text-align: center;
 }
 
 .messageInsert h3{
@@ -221,7 +237,7 @@ form .btnSubmit:hover{
 
 .message-box{
     width: 60%;
-    padding: 1.5rem;
+    padding: 1.2rem 1.5rem;
     border-radius: 12px;
     background-color: rgb(231, 222, 210);
     overflow-wrap: break-word;
@@ -235,6 +251,13 @@ form .btnSubmit:hover{
 
 .message-box p{
     width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.message-box .my-time{
+    margin-bottom: 0;
+    font-size: 0.7rem;
+    text-align: end;
 }
 
 .session-owner{

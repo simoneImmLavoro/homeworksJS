@@ -10,9 +10,10 @@ myName.textContent = takeUser()
 
 let myMessages = []
 
-function Messaggio(id, text){
+function Messaggio(id, text, time){
     this.id = id;
     this.text = text;
+    this.time = time;
 }
 
 function takeUser(){
@@ -34,6 +35,19 @@ window.addEventListener("DOMContentLoaded", function(){
         printMessage()
     }
 })
+
+function myHour(){
+    let currentData = new Date();
+    let hours = currentData.getHours();
+    let mins = currentData.getMinutes();
+
+    let oraFormatt = hours < 10 ? "0" + hours : hours;
+    let minFormatt = mins < 10 ? "0" + mins : mins;
+
+    let oraMin = oraFormatt + ":" + minFormatt;
+
+    return oraMin
+}
 
 
 let myCharMax = 100;
@@ -82,7 +96,7 @@ btnInvia.addEventListener("click", function(){
 function collectMessage(){
     let myText = textInput.value;
     let myId = takeUser()
-    let newMessage = new Messaggio(myId, myText);
+    let newMessage = new Messaggio(myId, myText, myHour());
     myMessages.push(newMessage);
 }
 
@@ -97,8 +111,10 @@ function printMessage(){
     myMessages.forEach(message =>{
         let myName = document.createElement("h5");
         let myText = document.createElement("p");
+        let myTime = document.createElement("p");
         let myMessageBox = document.createElement("div");
         myMessageBox.classList.add("message-box")
+        myTime.classList.add("my-time")
         
         if(message.id == takeUser()){
             myMessageBox.classList.add("session-owner")
@@ -106,11 +122,13 @@ function printMessage(){
         
         myName.textContent = message.id;
         myText.textContent = message.text;
+        myTime.textContent = message.time;
         
         
         demo.appendChild(myMessageBox)
         myMessageBox.appendChild(myName);
         myMessageBox.appendChild(myText);
+        myMessageBox.appendChild(myTime);
     })
 
     demo.scrollTo(0, demo.scrollHeight);

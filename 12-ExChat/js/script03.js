@@ -6,7 +6,11 @@ let alertP = document.querySelector(".alert");
 
 let usersList = [];
 let validData = false;
-let userPresent = false;
+
+function User(username, password){
+    this.username = username;
+    this.password = password;
+}
 
 window.addEventListener("DOMContentLoaded", function(){
     usersList = takeUsersList()
@@ -17,64 +21,62 @@ window.addEventListener("DOMContentLoaded", function(){
 
 function saveUsersList(){
     let myUsersJSON = JSON.stringify(usersList);
-    localStorage.setItem("myChat", myUsersJSON)
+    localStorage.setItem("usersList", myUsersJSON)
 }
 
 function takeUsersList(){
     let usersListJSON =  localStorage.getItem("usersList");
     let usersListOBJ = JSON.parse(usersListJSON);
-    return usersListOBJ;
+    return usersListOBJ
 }
 
-function User(username, password){
-    this.username = username;
-    this.password = password;
-}
+console.log(usersList.length);
 
-function checkUsers(){
-    usersList.forEach(user =>{
-        if(user.username == userInput.value){
-            userPresent = true;
-            alertP.textContent = "Attenzione, Username già in Uso";
-        } else {
-            userPresent = false;
-        }
-    })
+function checkUsers() {
+    console.log("inizio check");
+    let userPresent = false;
+    
+    if (usersList.length > 0) {
+        usersList.forEach(user => {
+            if(user.username === userInput.value){
+                userPresent = true;
+                alertP.textContent = "Attenzione Username non disponibile";
+            }
+        });
+    }
+    
+    return userPresent;
 }
 
 function createUser(){
     let myUsername = userInput.value;
     let myPassword = passInput.value;
     let passwordRepeat = passRepeatInput.value;
-
-    userPresent = false;
-
-    checkUsers()
-
-    if(userPresent){
-        alertP.textContent = "Attenzione Username non disponibile"
+    
+    
+    if(myUsername == "" || myPassword == "" || passwordRepeat == ""){
+        alertP.textContent = "Per favore inserisci i dati necessari";
+        validData = false;
     } else if(passwordRepeat != myPassword){
-        alertP.textContent = "Attenzione le password devono coincidere"
-    } else if(username != "" && password != "" && passwordRepeat != ""){
-        alertP.textContent = "Per favore inserisci i dati necessari"
+        alertP.textContent = "Attenzione le password devono coincidere";
+        validData = false;
     }else {
         validData = true
-        let newUser = new User(myUsername, myPassword);
-        usersList.push(newUser);
-        saveUsersList();
     }
-    }
-
-
+}
 
 
 function register(){
-
-
-    if(validData){
-        localStorage.setItem("usersList", saveUsersList());
+    let myUsername = userInput.value;
+    let myPassword = passInput.value;
+    let userPresent = checkUsers()
+    createUser()
+    
+    if(validData && !userPresent){
+        let newUser = new User(myUsername, myPassword);
+        usersList.push(newUser);
+        saveUsersList();
     } else {
-        alertP.textContent = "Per favore inserisci i dati necessari"
         event.preventDefault();
         event.stopImmediatePropagation();
     }
