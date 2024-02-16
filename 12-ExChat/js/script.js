@@ -100,20 +100,17 @@ function printMessage(){
         let myMessageBox = document.createElement("div");
         myMessageBox.classList.add("message-box")
         
-
-
         if(message.id == takeUser()){
             myMessageBox.classList.add("session-owner")
         }
-
+        
         myName.textContent = message.id;
         myText.textContent = message.text;
-    
+        
         
         demo.appendChild(myMessageBox)
         myMessageBox.appendChild(myName);
         myMessageBox.appendChild(myText);
-        
     })
 
     demo.scrollTo(0, demo.scrollHeight);

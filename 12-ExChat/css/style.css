@@ -146,15 +146,40 @@ form .btnSubmit:hover{
     background-color: #3588cc;
 }
 
+
 #demo{
     height: 50vh;
     background-color: rgb(175, 238, 217);
     overflow-y: scroll;
-    padding: 1.5rem 4rem;
+    padding: 3rem 4rem;
     border-width: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
+}
+
+#demo::-webkit-scrollbar {
+    width: 10px; /* Puoi regolare la larghezza a tuo piacimento */
+}
+
+#demo::-webkit-scrollbar-track {
+    background-color: rgb(140, 185, 170);
+}
+
+#demo::-webkit-scrollbar-thumb {
+    background-color: rgb(110, 158, 142);
+    border-radius: 10px;
+}
+
+
+.fader{
+    width: 70%;
+    height: 4vh;
+    background: linear-gradient(0deg, rgba(175,238,217,0) 25%, rgba(175,238,217,1) 100%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .message-box{
@@ -162,11 +187,17 @@ form .btnSubmit:hover{
     padding: 1.5rem;
     border-radius: 12px;
     background-color: rgb(231, 222, 210);
+    overflow-wrap: break-word;
 }
 
 .message-box h5{
     margin-bottom: 0.8rem;
     font-weight: 800;
+    width: 100%;
+}
+
+.message-box p{
+    width: 100%;
 }
 
 .session-owner{
