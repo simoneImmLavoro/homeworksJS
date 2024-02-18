@@ -4,11 +4,23 @@ let formLogin = document.querySelector("#formLogin");
 let alertP = document.querySelector(".alert");
 
 let usersList = [];
+myMessages= [];
 
 function takeUsersList(){
     let usersListJSON =  localStorage.getItem("usersList");
     let usersListOBJ = JSON.parse(usersListJSON);
     return usersListOBJ
+}
+
+function takeOldChat(){
+    let previousChatJSON =  localStorage.getItem("myChat");
+    let previousChatOBJ = JSON.parse(previousChatJSON);
+    return previousChatOBJ;
+}
+
+function saveLocalchat(){
+    let myMessagesJSON = JSON.stringify(myMessages);
+    localStorage.setItem("myChat", myMessagesJSON)
 }
 
 window.addEventListener("DOMContentLoaded", function(){
@@ -49,6 +61,14 @@ function login(){
 
     if(username != "" && password != ""){
         if(checkUser()){
+            myMessages = takeOldChat()
+            if(myMessages != null){
+                myMessages.forEach(message =>{
+                    message.seen = true;
+                })
+            }
+        
+            saveLocalchat()
             localStorage.setItem("userConnesso", username);
         } else{
             event.preventDefault();
