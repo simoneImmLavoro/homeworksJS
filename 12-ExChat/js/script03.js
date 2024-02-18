@@ -7,9 +7,10 @@ let alertP = document.querySelector(".alert");
 let usersList = [];
 let validData = false;
 
-function User(username, password){
+function User(username, password, lastConnected){
     this.username = username;
     this.password = password;
+    this.lastConnected = lastConnected;
 }
 
 window.addEventListener("DOMContentLoaded", function(){
@@ -73,7 +74,7 @@ function register(){
     createUser()
     
     if(validData && !userPresent){
-        let newUser = new User(myUsername, myPassword);
+        let newUser = new User(myUsername, myPassword, 0);
         usersList.push(newUser);
         saveUsersList();
     } else {

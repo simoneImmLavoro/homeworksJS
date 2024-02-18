@@ -4,12 +4,19 @@ let formLogin = document.querySelector("#formLogin");
 let alertP = document.querySelector(".alert");
 
 let usersList = [];
-myMessages= [];
+let myMessages= [];
+let userAllowed = "";
+let userLastAccess = 0;
 
 function takeUsersList(){
     let usersListJSON =  localStorage.getItem("usersList");
     let usersListOBJ = JSON.parse(usersListJSON);
     return usersListOBJ
+}
+
+function saveUsersList(){
+    let myUsersJSON = JSON.stringify(usersList);
+    localStorage.setItem("usersList", myUsersJSON)
 }
 
 function takeOldChat(){
@@ -23,17 +30,27 @@ function saveLocalchat(){
     localStorage.setItem("myChat", myMessagesJSON)
 }
 
+
 window.addEventListener("DOMContentLoaded", function(){
     localStorage.removeItem("userConnesso")
-
+    
     usersList = takeUsersList()
     if(usersList == null){
         usersList = [];
     }
 
+    saveUsersList()
+    
     alertP.textContent = "";
     userInput.value = "";
     passInput.value = "";
+})
+
+window.addEventListener("DOMContentLoaded", function(){
+    myMessages = takeOldChat()
+    if(myMessages == null){
+        myMessages = [];
+    }
 })
 
 
@@ -42,6 +59,10 @@ function checkUser(){
         for(let i = 0; i < usersList.length; i++){
             if(usersList[i].username == userInput.value){
                 if (usersList[i].password === passInput.value) {
+                    userAllowed = usersList[i].username;
+                    userLastAccess = usersList[i].lastConnected;
+                    usersList[i].lastConnected = new Date().getTime();
+                    saveUsersList()
                     return true; 
                 } else {
                     alertP.textContent = "Password errata";
@@ -54,34 +75,61 @@ function checkUser(){
     return false;
 }
 
+                
+function userLastAccessCheck() {
+    myMessages = takeOldChat();
+    let othersEnter = true;
+    
+    console.log(userLastAccess);
 
-function login(){
+        
+        for(let i = 0; i < usersList.length; i++){
+            if(usersList[i].username === userAllowed){
+                for(let g=0; g < usersList.length; g++){
+                    console.log(usersList[g].lastConnected);
+                    if(usersList[g].lastConnected < userLastAccess){
+                        othersEnter = false;
+                        break;
+                    }
+                }
+            }                  
+        }
+    
+    
+    
+    if(othersEnter){
+        myMessages.forEach(message => {
+            // if (message.completeDate < userNewAccessTime) {
+                message.seen = true;
+                // }
+            });
+        }
+        
+    saveLocalchat();
+}
+
+
+function login(event){
     let username = userInput.value;
     let password = passInput.value;
 
-    if(username != "" && password != ""){
-        if(checkUser()){
-            myMessages = takeOldChat()
-            if(myMessages != null){
-                myMessages.forEach(message =>{
-                    message.seen = true;
-                })
-            }
-        
-            saveLocalchat()
+    if (username != "" && password != ""){
+        if (checkUser()) {
+            userLastAccessCheck();
             localStorage.setItem("userConnesso", username);
-        } else{
+        } else {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
     } else {
-        alertP.textContent = "Per favore inserisci i dati necessari"
+        alertP.textContent = "Per favore inserisci i dati necessari";
         event.preventDefault();
         event.stopImmediatePropagation();
     }
 }
 
-formLogin.addEventListener("submit", login)
+formLogin.addEventListener("submit", login);
+
 
 userInput.addEventListener("focus", function(){
         alertP.textContent = "";

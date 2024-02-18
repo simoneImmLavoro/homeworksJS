@@ -10,11 +10,12 @@ myName.textContent = takeUser()
 
 let myMessages = []
 
-function Messaggio(id, text, time, seen){
+function Messaggio(id, text, time, seen, completeDate){
     this.id = id;
     this.text = text;
     this.time = time;
     this.seen = seen;
+    this.completeDate = completeDate;
 }
 
 function takeUser(){
@@ -40,6 +41,8 @@ window.addEventListener("DOMContentLoaded", function(){
     } else {
         printMessage()
     }
+
+    alarm.textContent = "";
 })
 
 
@@ -103,7 +106,7 @@ btnInvia.addEventListener("click", function(){
 function collectMessage(){
     let myText = textInput.value;
     let myId = takeUser()
-    let newMessage = new Messaggio(myId, myText, myHour(), false);
+    let newMessage = new Messaggio(myId, myText, myHour(), false, new Date().getTime());
     myMessages.push(newMessage);
 }
 
