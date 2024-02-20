@@ -36,6 +36,7 @@ function saveLocalchat(){
 
 window.addEventListener("DOMContentLoaded", function(){
     myMessages = takeOldChat()
+    myName.textContent = takeUser()
     if(myMessages == null){
         myMessages = [];
     } else {

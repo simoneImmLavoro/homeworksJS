@@ -115,8 +115,8 @@ function login(event){
 
     if (username != "" && password != ""){
         if (checkUser()) {
-            userLastAccessCheck();
             localStorage.setItem("userConnesso", username);
+            userLastAccessCheck();
         } else {
             event.preventDefault();
             event.stopImmediatePropagation();
