@@ -5,6 +5,8 @@ let prodURL = "https:dummyjson.com/products";
 
 let mySavedProducts = [];
 
+window.addEventListener("DOMContentLoaded", caricaProdotti)
+
 fetch(prodURL)
     .then(data => {
         return data.json()
@@ -45,8 +47,16 @@ function saveItem(prodotto){
 }
 
 
+function caricaProdotti(){
+    if(localStorage.key("cartList") != null){
+        mySavedProducts = JSON.parse(localStorage.getItem("cartList"));
+        }
+    return mySavedProducts;
+}
+
 function saveCartList(arrayProdotti){
     let myListOBJ = JSON.stringify(arrayProdotti);
+
     localStorage.setItem("cartList", myListOBJ)
 }
 
