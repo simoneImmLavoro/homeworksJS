@@ -13,7 +13,7 @@ fetch(prodURL)
         let myProducts = response.products;
 
         myProducts.forEach(prodotto =>{
-            creaItem(prodotto)
+            listaElementi.appendChild(creaItem(prodotto))
         })
     }
     )
@@ -32,24 +32,25 @@ function creaItem(prodotto){
     li.appendChild(buttCart)
     buttCart.appendChild(iconSpan)
 
-    let mioProdotto = prodotto;
-
     buttCart.addEventListener("click", function(){
-        saveItem(mioProdotto);
+        saveItem(prodotto);
     });
+
+    return li;
 }
 
-function saveItem(mioProdotto){
-    mySavedProducts.push(mioProdotto);
+function saveItem(prodotto){
+    mySavedProducts.push(prodotto);
     console.log(mySavedProducts);
 }
 
-function saveCartList(){
-    let myListOBJ = JSON.stringify(mySavedProducts);
+
+function saveCartList(arrayProdotti){
+    let myListOBJ = JSON.stringify(arrayProdotti);
     localStorage.setItem("cartList", myListOBJ)
 }
 
 linkCart.addEventListener("click", function(){
-    saveCartList()
+    saveCartList(mySavedProducts)
 })
 
