@@ -31,10 +31,9 @@ function takeUsersList(){
     return usersListOBJ
 }
 
-console.log(usersList.length);
+
 
 function checkUsers() {
-    console.log("inizio check");
     let userPresent = false;
     
     if (usersList.length > 0) {
