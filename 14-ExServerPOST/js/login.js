@@ -15,25 +15,24 @@ fetch(ENDPOINT)
         myUsers = response
     })
 
-function validateAccess() {
-    if (myUsers.length > 0) {
-        for (let i = 0; i < myUsers.length; i++) {
-            if (myUsers[i].username == usernameInput.value) {
-                if (myUsers[i].password === passwordInput.value) {
-                    return true;
-                } else {
-                    alertP.textContent = "Password errata";
-                    return false;
+    function validateAccess() {
+        if (myUsers.length > 0) {
+            for (let i = 0; i < myUsers.length; i++) {
+                if (myUsers[i].username.toUpperCase() == usernameInput.value.toUpperCase()) {
+                    if (myUsers[i].password === passwordInput.value) {
+                        return true;
+                    } else {
+                        alertP.textContent = "Password errata";
+                        return false;
+                    }
                 }
-            } else {
-                alertP.textContent = "Non esistono utenti con questo Username"
-                return false;
             }
+            alertP.textContent = "Non esistono utenti con questo Username";
+            return false;
         }
+        alertP.textContent = "Non esistono utenti con questo Username";
+        return false;
     }
-    alertP.textContent = "Non esistono utenti con questo Username"
-    return false;
-}
 
 function login(event) {
     event.preventDefault();
@@ -42,7 +41,7 @@ function login(event) {
 
     if (username != "" && password != "") {
         if (validateAccess()) {
-            window.location.href = "http://127.0.0.1:5500/14-ExServerPOST/main.html";
+            window.location.href = "./main.html";
         } else {
             event.stopImmediatePropagation();
         }

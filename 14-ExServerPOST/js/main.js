@@ -1,4 +1,5 @@
 let userContainer = document.querySelector("#user-container");
+let logoutBtn = document.querySelector("#logOut")
 
 const ENDPOINT = "http://localhost:3000/users"
 let myUsers = [];
@@ -65,3 +66,7 @@ function createUsersElement(user){
 
     userContainer.appendChild(parentDiv)
 }
+
+logoutBtn.addEventListener("click", function(){
+    window.location.href = "./login.html";
+})

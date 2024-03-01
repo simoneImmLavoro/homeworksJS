@@ -91,7 +91,7 @@ function registeNewUser(event) {
 
         newUser = new User(nome, cognome, email, tel, username, password, id, "offline")
         saveUsersList();
-        window.location.href = "http://127.0.0.1:5500/14-ExServerPOST/login.html";
+        window.location.href = "./login.html";
     } else {
         event.stopImmediatePropagation();
     }

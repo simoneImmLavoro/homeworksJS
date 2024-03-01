@@ -19,6 +19,16 @@
       "username": "BrEsciolo",
       "password": "1",
       "status": "offline"
+    },
+    {
+      "id": 3,
+      "nome": "Gina",
+      "cognome": "Va",
+      "email": "va.gina@va.gina",
+      "tel": "3666969996",
+      "username": "VaG",
+      "password": "1",
+      "status": "offline"
     }
   ]
 }
