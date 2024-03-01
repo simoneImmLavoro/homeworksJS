@@ -42,12 +42,6 @@ function saveUsersList() {
         .then(response => {
             return response.json();
         })
-        .then(data => {
-            console.log("Data saved:", data);
-        })
-        .catch(error => {
-            console.error("Error saving data:", error);
-        });
 }
 
 function userPresence() {
@@ -82,6 +76,7 @@ function createUser() {
 }
 
 function registeNewUser(event) {
+    event.preventDefault();
     createUser();
     let userPresent = userPresence(event);
 
@@ -98,7 +93,6 @@ function registeNewUser(event) {
         saveUsersList();
         window.location.href = "http://127.0.0.1:5500/14-ExServerPOST/login.html";
     } else {
-        event.preventDefault();
         event.stopImmediatePropagation();
     }
 }

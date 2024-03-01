@@ -1,3 +1,24 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "nome": "Simone",
+      "cognome": "Franchi",
+      "email": "sifra.dd@gmail.de",
+      "tel": "3445676654",
+      "username": "Sfra",
+      "password": "1",
+      "status": "offline"
+    },
+    {
+      "id": 2,
+      "nome": "Franco",
+      "cognome": "Brescia",
+      "email": "breeesc@gimail.net",
+      "tel": "3324579897",
+      "username": "BrEsciolo",
+      "password": "1",
+      "status": "offline"
+    }
+  ]
 }
