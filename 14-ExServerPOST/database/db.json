@@ -23,10 +23,10 @@
     {
       "id": 3,
       "nome": "Gina",
-      "cognome": "Va",
-      "email": "va.gina@va.gina",
+      "cognome": "Rossi",
+      "email": "ros.gina@va.gina",
       "tel": "3666969996",
-      "username": "VaG",
+      "username": "RaG",
       "password": "1",
       "status": "offline"
     }
