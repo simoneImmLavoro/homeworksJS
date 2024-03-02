@@ -29,6 +29,7 @@ function createUsersElement(user){
 
     let nomeP = document.createElement("p")
     let cognomeP = document.createElement("p")
+    let usernameP = document.createElement("p")
     let emailP = document.createElement("p")
     let telP = document.createElement("p")
 
@@ -51,6 +52,7 @@ function createUsersElement(user){
     accBtn.textContent = user.nome + " " + user.cognome;
     nomeP.textContent = "Nome: " + user.nome    
     cognomeP.textContent = "Cognome: " + user.cognome    
+    usernameP.textContent = "Username: " + user.username    
     emailP.textContent = "Email: " + user.email    
     telP.textContent = "Telefono: " + user.tel    
 
@@ -61,6 +63,7 @@ function createUsersElement(user){
     secondDiv.appendChild(childDiv)
     childDiv.appendChild(nomeP)
     childDiv.appendChild(cognomeP)
+    childDiv.appendChild(usernameP)
     childDiv.appendChild(emailP)
     childDiv.appendChild(telP)
 

@@ -49,7 +49,7 @@ function userPresence() {
 
     if (myUsers.length > 0) {
         myUsers.forEach(user => {
-            if (user.username === username.value) {
+            if (user.username.toUpperCase() === username.value.toUpperCase()) {
                 userPresent = true;
                 alertP.textContent = "Attenzione Username non disponibile";
             }
