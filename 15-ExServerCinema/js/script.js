@@ -1,7 +1,10 @@
 let gallery = document.querySelector(".gallery")
 let oldGallery = document.querySelector(".oldGallery")
+let btnCta = document.querySelector("#btnCta")
 
+localStorage.clear()
 
+let temporaryCart = [];
 let myDbSpettacoli = "http://localhost:3000/spettacoli"
 
 fetch(myDbSpettacoli)
@@ -54,6 +57,12 @@ function aggiungiCard(film){
     prezzo.textContent = film.prezzo + "€"
     btn.textContent = "Prenota il tuo posto"
 
+    btn.addEventListener("click", function(){
+        let mySelection = film.id;
+        temporaryCart.push(mySelection)
+        console.log(temporaryCart);
+    })
+
     btnDiv.appendChild(btn);
     descrDiv.appendChild(durata)
     descrDiv.appendChild(prezzo)
@@ -82,3 +91,9 @@ function createOldFilms(film){
     firstDiv.appendChild(img)
     oldGallery.appendChild(firstDiv)
 }
+
+btnCta.addEventListener("click", function(){
+    let temporaryCartOBJ = JSON.stringify(temporaryCart)
+    localStorage.setItem("temporaryCart", temporaryCartOBJ)
+    window.location.href = "./cart.html";
+})
