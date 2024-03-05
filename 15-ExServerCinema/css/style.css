@@ -13,3 +13,7 @@ img{
 footer{
     height: 15vh;
 }
+
+.imgDiv img{
+    height: 18rem;
+}
