@@ -1,0 +1,15 @@
+img{
+    transition: 0.3s;
+}
+
+.box{
+    height: 75vh;
+}
+
+#caouselInner{
+    height: 80%;
+}
+
+footer{
+    height: 15vh;
+}
