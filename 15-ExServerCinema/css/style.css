@@ -17,3 +17,13 @@ footer{
 .imgDiv img{
     height: 18rem;
 }
+
+main{
+    position: relative;
+}
+
+.summary-area{
+    position: fixed;
+    top: 12%;
+    right: 0;
+}
