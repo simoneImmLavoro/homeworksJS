@@ -27,15 +27,21 @@ window.addEventListener('DOMContentLoaded', function(){
             return data.json()
         })
         .then(response =>{
-            response.forEach(film =>{
-                for(let i=0; i < myCart.length; i++){
-                    if(film.id == myCart[i]){
-                        createItem(film)
-                        calculateTotal()
+            if (myCart.length === 0) {
+                cartDiv.innerHTML += `<h1>Il tuo carrello è vuoto, torna alla Home</h1>`;
+            } else {
+                response.forEach(film => {
+                    for (let i = 0; i < myCart.length; i++) {
+                        if (film.id == myCart[i]) {
+                            createItem(film);
+                            calculateTotal();
+                        }
                     }
-                }
-            })
-            quanti.textContent = myCart.length
+                });
+            }
+            
+            quanti.textContent = myCart.length;
+            
         })
     });
     
