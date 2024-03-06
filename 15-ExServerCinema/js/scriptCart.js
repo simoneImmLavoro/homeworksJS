@@ -31,10 +31,11 @@ window.addEventListener('DOMContentLoaded', function(){
                 for(let i=0; i < myCart.length; i++){
                     if(film.id == myCart[i]){
                         createItem(film)
+                        calculateTotal()
                     }
                 }
-                quanti.textContent = myCart.length
             })
+            quanti.textContent = myCart.length
         })
     });
     
@@ -51,8 +52,10 @@ function createItem(film){
     let input = document.createElement("input");
     let minus = document.createElement("small");
     let forthInnerDiv = document.createElement("div");
+    let eur = document.createElement("p")
     let price = document.createElement("p");
     let hr = document.createElement("hr");
+
 
     parentDiv.setAttribute("class", "item row");
     imgDiv.setAttribute("class", "col-12 col-lg-2");
@@ -72,20 +75,24 @@ function createItem(film){
     input.setAttribute("type", "number");
     input.setAttribute("value", "1");
     forthInnerDiv.setAttribute("class", "col-12 col-lg-4 d-flex align-items-lg-center justify-content-lg-center");
+    eur.setAttribute("class", "me-1 my-0")
     price.setAttribute("class", "mb-0 fw-medium");
+    price.setAttribute("id", "priceDiv");
     hr.setAttribute("class", "my-3 ");
 
     minus.textContent = "-";
     plus.textContent = "+";
     title.textContent = film.titolo;
-    price.textContent = "€ " + (film.prezzo * input.value)
+    price.textContent = (film.prezzo * input.value)
+    eur.textContent = "€"
 
     minus.addEventListener("click", function(){
         let actualValue = input.value;
         if(actualValue > 0){
             actualValue--
             input.value = actualValue
-            price.textContent = "€ " + (film.prezzo * input.value)
+            price.textContent = (film.prezzo * input.value)
+            calculateTotal()
         }
     })
     
@@ -93,7 +100,8 @@ function createItem(film){
         let actualValue = input.value;
             actualValue++
             input.value = actualValue
-            price.textContent = "€ " + (film.prezzo * input.value)
+            price.textContent = (film.prezzo * input.value)
+            calculateTotal()
     })
 
     imgDiv.appendChild(img);
@@ -102,6 +110,7 @@ function createItem(film){
     thirtInnerDiv.appendChild(input);
     thirtInnerDiv.appendChild(plus);
     thirtDiv.appendChild(thirtInnerDiv);
+    forthInnerDiv.appendChild(eur)
     forthInnerDiv.appendChild(price)
 
     parentDiv.appendChild(imgDiv)
@@ -114,13 +123,13 @@ function createItem(film){
 }
 
 function calculateTotal(){
-    let amounts = document.querySelectorAll("#amount");
+    let prices = document.querySelectorAll("#priceDiv");
     let total = 0;
 
-    amounts.forEach(amount =>{
-        total += amount.value
+    prices.forEach(price =>{
+        total += Number(price.textContent)
     })
-
-    totalSpan.textContent = total
+    
+    totalSpan.textContent = "€ " + total;
 }
 
