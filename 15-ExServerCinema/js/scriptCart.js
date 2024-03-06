@@ -1,13 +1,17 @@
 let cartDiv = document.querySelector(".cart-area")
 let quanti = document.querySelector("#quanti")
 let totalSpan = document.querySelector(".total")
-
-
+let nomeInput = document.querySelector("#nome")
+let cognomeInput = document.querySelector("#cognome")
+let telInput = document.querySelector("#tel")
+let emailInput = document.querySelector("#email")
+let buyBtn = document.querySelector("#buy")
 
 
 let granTotal = 0;
 let myCart = []
 let ENDPOINT = "http://localhost:3000/spettacoli"
+
 
 
 function takeElements(){
@@ -33,6 +37,7 @@ window.addEventListener('DOMContentLoaded', function(){
                 response.forEach(film => {
                     for (let i = 0; i < myCart.length; i++) {
                         if (film.id == myCart[i]) {
+
                             createItem(film);
                             calculateTotal();
                         }
@@ -139,3 +144,32 @@ function calculateTotal(){
     totalSpan.textContent = "€ " + total;
 }
 
+function storeData(){
+    let nome = nomeInput.value;
+    let cognome = cognomeInput.value;
+    let email = emailInput.value;
+    let tel = telInput.value;
+
+    let purchase = {
+        "persona" : nome + " " + cognome,
+        "email": email,
+        "tel": tel,
+        "biglietti": [
+            "cose"
+        ],
+        "totale": calculateTotal()
+    }
+
+    fetch("http://localhost:3000/bigliettiAcquistati",{
+        method: "POST",
+        headers: {
+            "Content-type" : "application/json"
+        },
+        body: JSON.stringify(purchase)
+    })
+    .then(data => {
+        return data.json()
+    })
+}
+
+buyBtn.addEventListener("click", storeData)
