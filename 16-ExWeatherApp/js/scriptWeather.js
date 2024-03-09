@@ -5,6 +5,7 @@ let tempSpan = document.querySelector(".temp");
 let humiditySpan = document.querySelector(".humidity");
 let pressureSpan = document.querySelector(".pressure");
 let windSpan = document.querySelector(".wind");
+let mainDescr = document.querySelector(".main-descr");
 let askButton = document.querySelector("#btnAsk");
 
 
@@ -26,6 +27,7 @@ askButton.addEventListener("click", function(){
 function printResults(city){
 
     weatherIcon.setAttribute("src", `http://openweathermap.org/img/w/${city.weather[0].icon}.png`)
+    mainDescr.textContent = city.weather[0].main;
     citySpan.textContent = city.name;
     tempSpan.textContent = (city.main.temp - 273.15).toFixed(2) + "°C";
     humiditySpan.textContent = city.main.humidity+"%";
