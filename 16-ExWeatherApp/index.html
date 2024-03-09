@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Poor Man Weather</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="bg-secondary" style="height: 100vh;" class="">
+            <div class="container h-100">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-8 bg-light h-75">
+                        <h1 class="text-center mt-3">Poor Man Weather</h1>
+                        <p class="h5 text-center mb-5">You want to now the Weather of somewhere?</p>
+                        <p class="h6 text-center mb-3">Tell me a City! I'm ready</p>
+                        <div class="input-group mb-4 w-50 mx-auto">
+                            <input type="text" class="form-control me-2" placeholder="City" id="cityInput">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="btnAsk" type="button">Send</button>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="">The actual Weather of <span class="h5" id="citySpan">What???</span></p>
+                            <div class="icon" style="width: 5rem;">
+                                <img src="https://icons.veryicon.com/png/o/miscellaneous/jt2/question-mark-circle.png" alt="" class="effectIcon img-fluid w-100">
+                            </div>
+                                <div class="for-temp row g-lg-4 mt-3 d-flex justify-content-center align-items-center w-75 mx-auto">
+                                    <p class="col-lg-6 h6">Temperature: <span class="temp"></span></p>
+                                    <p class="col-lg-6 h6">Humidity: <span class="humidity"></span></p>
+                                    <p class="col-lg-6 h6">Pressure: <span class="pressure"></span></p>
+                                    <p class="col-lg-6 h6">Wind: <span class="wind"></span></p>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="./js/scriptWeather.js"></script>
+    </body>
+</html>
