@@ -32,6 +32,6 @@ function printResults(city){
     tempSpan.textContent = (city.main.temp - 273.15).toFixed(2) + "°C";
     humiditySpan.textContent = city.main.humidity+"%";
     pressureSpan.textContent = city.main.pressure+ "bar";
-    windSpan.textContent = city.wind.speed+"mph";
+    windSpan.textContent = ((Number(city.wind.speed)) * 1.609344).toFixed(2) + "Km/h";
 
 }
