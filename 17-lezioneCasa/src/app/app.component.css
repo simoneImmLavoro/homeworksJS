@@ -1,0 +1,41 @@
+.cerchio{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(50, 92, 184);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: antiquewhite;
+}
+
+.cerchioGreen{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(0, 194, 74);
+    border-radius: 50%;
+    color: #000;
+}
+
+.cerchioRed{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(194, 71, 0);
+    border-radius: 50%;
+    color: #fff;
+}
+
+.square{
+    border-radius: 0;
+}
+
+li{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+li>p{
+    margin-bottom: 0;
+    margin-left: 10px;
+}
