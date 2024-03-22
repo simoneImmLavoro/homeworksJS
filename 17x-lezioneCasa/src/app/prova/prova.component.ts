@@ -1,11 +1,14 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-prova',
   templateUrl: './prova.component.html',
   styleUrls: ['./prova.component.css']
 })
-export class ProvaComponent implements OnInit, AfterViewInit, AfterContentChecked, AfterContentInit, AfterViewChecked, DoCheck, OnDestroy {
+export class ProvaComponent implements OnInit, AfterViewInit, AfterContentChecked, AfterContentInit, AfterViewChecked, DoCheck, OnDestroy, OnChanges {
+
+  @Input() data: any;
+
 
   cani = [
     {nome: "roger",
@@ -14,31 +17,30 @@ export class ProvaComponent implements OnInit, AfterViewInit, AfterContentChecke
   }
   ]
 
-  constructor() { 
-    console.log("costruttore");
-    
-  }
-  ngAfterViewInit(): void {
-    console.log("ngAfterViewInit");
-  }
-  ngAfterContentChecked(): void {
-    console.log("ngAfterContentChecked");
-  }
-  ngAfterContentInit(): void {
-    console.log("ngAfterContentInit");
-  }
-  ngAfterViewChecked(): void {
-    console.log("ngAfterViewChecked");
-  }
-  ngDoCheck(): void {
-    console.log("ngDoCheck");
-  }
-  ngOnDestroy(): void {
-    console.log("ngOnDestroy");
+  constructor() {    
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    
+  }
+
+  ngAfterViewInit(): void {
+  }
+  ngAfterContentChecked(): void {
+  }
+  ngAfterContentInit(): void {
+  }
+  ngAfterViewChecked(): void {
+  }
+  ngDoCheck(): void {
+  }
+  ngOnDestroy(): void {
+  }
+
+
   ngOnInit(): void {
-    console.log("ngOnInit");
+    console.log(this.data);
     
   }
 

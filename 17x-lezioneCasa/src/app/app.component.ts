@@ -12,10 +12,18 @@ export class AppComponent {
   isVisible: boolean = true;
 
   persone: Persona[] = [
-    {nome: "luca", cognome: "rossi", isOnline: true},
-    {nome: "marco", cognome: "neri", isOnline: false},
-    {nome: "maria", cognome: "gialli", isOnline: true}
+    {nome: "luca", cognome: "rossi", isOnline: true, color: "red"},
+    {nome: "marco", cognome: "neri", isOnline: false, color: "green"},
+    {nome: "maria", cognome: "gialli", isOnline: true, color: "purple"}
   ]
+
+  onClick(){
+    this.persone = [
+      {nome: "Franco", cognome: "rossi", isOnline: true, color: "red"},
+      {nome: "Gigi", cognome: "neri", isOnline: false, color: "green"},
+      {nome: "Alana", cognome: "gialli", isOnline: true, color: "purple"}
+    ]
+  }
 
   numero: number = 2;
 
@@ -27,7 +35,7 @@ export class AppComponent {
     this.title = (<HTMLInputElement>event.target).value
   }
 
-  onClick(event: Event){
-    this.title = "Ho cliccato il bottone"
-  }
+  // onClick(event: Event){
+  //   this.title = "Ho cliccato il bottone"
+  // }
 }

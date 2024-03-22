@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<!-- <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>{{cani[0].nome.toUpperCase()}}</mat-card-title>
       <mat-card-subtitle>{{ 6 < 5 ? "querty" : "paul"}}</mat-card-subtitle>
@@ -11,4 +11,8 @@
       <button mat-button>LIKE</button>
       <button mat-button>SHARE</button>
     </mat-card-actions>
-  </mat-card>
+  </mat-card> -->
+
+  <div *ngFor="let persona of data;">
+    <p [ngStyle]="{color: persona.color}">{{persona.nome}} {{persona.cognome}}</p>
+  </div>

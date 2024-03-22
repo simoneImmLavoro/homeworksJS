@@ -48,10 +48,13 @@
     <p>{{persona.nome}} persona</p>
   </li>
 </ul> -->
-
+<!-- 
 <ul>
   <li *ngFor="let persona of persone, index as i">
     <div class="cerchio" [ngClass]="{'cerchioGreen' : persona.isOnline, 'cerchioRed' : !persona.isOnline}">{{i}}</div>
     <p>{{persona.nome}} persona</p>
   </li>
-</ul>
+</ul> -->
+
+<app-prova [data]="persone"></app-prova>
+<button (click)="onClick()">Cambia</button>
