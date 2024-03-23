@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NephiewComponent } from './nephiew.component';
+import { AnimalAreaComponent } from './animal-area.component';
 
-describe('NephiewComponent', () => {
-  let component: NephiewComponent;
-  let fixture: ComponentFixture<NephiewComponent>;
+describe('AnimalAreaComponent', () => {
+  let component: AnimalAreaComponent;
+  let fixture: ComponentFixture<AnimalAreaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NephiewComponent ]
+      declarations: [ AnimalAreaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NephiewComponent);
+    fixture = TestBed.createComponent(AnimalAreaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

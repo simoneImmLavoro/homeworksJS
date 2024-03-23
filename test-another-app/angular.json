@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ex-test-parent-to-child": {
+    "test-another-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ex-test-parent-to-child",
+            "outputPath": "dist/test-another-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ex-test-parent-to-child:build:production"
+              "browserTarget": "test-another-app:build:production"
             },
             "development": {
-              "browserTarget": "ex-test-parent-to-child:build:development"
+              "browserTarget": "test-another-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ex-test-parent-to-child:build"
+            "browserTarget": "test-another-app:build"
           }
         },
         "test": {

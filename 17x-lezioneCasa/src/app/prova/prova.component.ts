@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-prova',
@@ -9,12 +9,24 @@ export class ProvaComponent implements OnInit, AfterViewInit, AfterContentChecke
 
   @Input() data: any;
 
+  @Output() mandaDatiEvento = new EventEmitter<string>();
+
+  nome: string = "Simone"
+
+  mandaDati(){
+    this.mandaDatiEvento.emit(this.nome)
+  }
+
 
   cani = [
     {nome: "roger",
     razza: "golden",
-    descrizione: "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
-  }
+    descrizione: "The Shiba . A small, agile dog that copes very well, the Shiba Inu was originally bred for hunting."
+    },
+    {nome: "gregor",
+    razza: "shiba",
+    descrizione: "The Shiba Inu is the smallest of the six original and distinct spitz ."
+    },
   ]
 
   constructor() {    

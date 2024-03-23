@@ -38,4 +38,9 @@ export class AppComponent {
   // onClick(event: Event){
   //   this.title = "Ho cliccato il bottone"
   // }
+
+  onRiceviDati(nome: string){
+    console.log(nome);
+    
+  }
 }

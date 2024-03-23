@@ -56,5 +56,7 @@
   </li>
 </ul> -->
 
-<app-prova [data]="persone"></app-prova>
-<button (click)="onClick()">Cambia</button>
+<!-- <app-prova [data]="persone"></app-prova>
+<button (click)="onClick()">Cambia</button> -->
+
+<app-prova (mandaDatiEvento)="onRiceviDati($event)"></app-prova>
