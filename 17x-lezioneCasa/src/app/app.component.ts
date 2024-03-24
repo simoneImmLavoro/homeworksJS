@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Persona } from './personaModel';
 
 @Component({
@@ -6,7 +6,7 @@ import { Persona } from './personaModel';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'lezione-angular';
   
   isVisible: boolean = true;
@@ -17,13 +17,13 @@ export class AppComponent {
     {nome: "maria", cognome: "gialli", isOnline: true, color: "purple"}
   ]
 
-  onClick(){
-    this.persone = [
-      {nome: "Franco", cognome: "rossi", isOnline: true, color: "red"},
-      {nome: "Gigi", cognome: "neri", isOnline: false, color: "green"},
-      {nome: "Alana", cognome: "gialli", isOnline: true, color: "purple"}
-    ]
-  }
+  // onClick(){
+  //   this.persone = [
+  //     {nome: "Franco", cognome: "rossi", isOnline: true, color: "red"},
+  //     {nome: "Gigi", cognome: "neri", isOnline: false, color: "green"},
+  //     {nome: "Alana", cognome: "gialli", isOnline: true, color: "purple"}
+  //   ]
+  // }
 
   numero: number = 2;
 
@@ -42,5 +42,28 @@ export class AppComponent {
   onRiceviDati(nome: string){
     console.log(nome);
     
+  }
+
+  @ViewChild('inputSaluti') inputSaluti!: ElementRef<HTMLInputElement>;
+
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    console.log(this.inputSaluti);
+    
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    console.log(this.inputSaluti);
+  }
+
+  onClick(){
+    console.log(this.inputSaluti.nativeElement.value);
+  }
+
+  colore: string =''
+
+  cambiaColoreEvidenziatore(colore: string){
+    this.colore = colore;
   }
 }

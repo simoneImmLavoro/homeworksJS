@@ -59,4 +59,18 @@
 <!-- <app-prova [data]="persone"></app-prova>
 <button (click)="onClick()">Cambia</button> -->
 
-<app-prova (mandaDatiEvento)="onRiceviDati($event)"></app-prova>
+<!-- <app-prova (mandaDatiEvento)="onRiceviDati($event)"></app-prova> -->
+
+<!-- <input #inputSaluti value="valore">
+<button (click)="onClick()">CLIKKAMIII</button> -->
+
+<h2>Scegli il colore dell'evidenziatore</h2>
+<div>
+  <input type="radio" name="coloreEvidenziatore"(click)="cambiaColoreEvidenziatore('red')">Rosso
+  <input type="radio" name="coloreEvidenziatore"(click)="cambiaColoreEvidenziatore('pink')">Rosa
+  <input type="radio" name="coloreEvidenziatore"(click)="cambiaColoreEvidenziatore('purple')">Viola
+</div>
+<br>
+<p [appHighlight]="colore" defaultColor="green">Ciao sono un paragrafo</p>
+<p [appHighlight]="colore" defaultColor="gray">Ciao sono un paragrafo</p>
+<p [appHighlight]="colore" defaultColor="cyan">Ciao sono un paragrafo</p>
